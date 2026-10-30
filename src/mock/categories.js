@@ -1,0 +1,48 @@
+export const categories = [
+  {
+    id: "laptops",
+    name: "Laptops & PCs",
+    slug: "laptops",
+    itemCount: 24,
+    description: "Ultra-portable workstations, gaming beasts, and pro notebooks.",
+    icon: "LaptopIcon",
+    gradient: "from-blue-600 to-indigo-700",
+  },
+  {
+    id: "smartphones",
+    name: "Smartphones",
+    slug: "smartphones",
+    itemCount: 38,
+    description: "Flagship devices with next-gen optics and AI processors.",
+    icon: "SmartphoneIcon",
+    gradient: "from-purple-600 to-pink-600",
+  },
+  {
+    id: "audio",
+    name: "Audio & Sound",
+    slug: "audio",
+    itemCount: 19,
+    description: "Noise-cancelling headphones, Hi-Fi earphones, and studio monitors.",
+    icon: "HeadphonesIcon",
+    gradient: "from-emerald-600 to-teal-600",
+  },
+  {
+    id: "wearables",
+    name: "Smartwatches & Wearables",
+    slug: "wearables",
+    itemCount: 15,
+    description: "Biometric health trackers, luxury smartwatches, and fitness bands.",
+    icon: "WatchIcon",
+    gradient: "from-amber-500 to-orange-600",
+  },
+  {
+    id: "components",
+    name: "Components & GPUs",
+    slug: "components",
+    itemCount: 42,
+    description: "Cutting-edge graphics cards, processors, and ultra-fast SSDs.",
+    icon: "CpuIcon",
+    gradient: "from-cyan-600 to-blue-700",
+  },
+];
+
