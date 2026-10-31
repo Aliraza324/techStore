@@ -91,25 +91,25 @@ export const HeroBanner = () => {
               Cases, chargers, crystal-clear sound, and smart accessories. Find the perfect match for your devices and your lifestyle.
             </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3.5 pt-1">
+            {/* CTA Buttons (Side-by-side on all screens with responsive typography) */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-2 sm:gap-3.5 pt-1">
               <Link
                 to="/products"
-                className="group px-6 py-3 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#6c38ff]/25 transition-all flex items-center gap-3 hover:scale-105"
+                className="group px-3 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-[11px] sm:text-sm font-bold shadow-lg shadow-[#6c38ff]/25 transition-all flex items-center gap-1.5 sm:gap-3 hover:scale-105 shrink-0 whitespace-nowrap"
               >
                 <span>Shop Now</span>
-                <span className="w-6 h-6 rounded-full bg-white text-[#6c38ff] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
-                  <ArrowRightIcon size={13} animateOnHover={true} />
+                <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white text-[#6c38ff] flex items-center justify-center transition-transform group-hover:translate-x-0.5 shrink-0">
+                  <ArrowRightIcon size={11} animateOnHover={true} />
                 </span>
               </Link>
 
               <Link
                 to="/products?category=new"
-                className="group px-6 py-3 rounded-full bg-white/95 hover:bg-white border border-gray-200 text-gray-900 text-xs sm:text-sm font-bold shadow-xs transition-all flex items-center gap-3 hover:scale-105 backdrop-blur-xs"
+                className="group px-2.5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/95 hover:bg-white border border-gray-200 text-gray-900 text-[11px] sm:text-sm font-bold shadow-xs transition-all flex items-center gap-1.5 sm:gap-3 hover:scale-105 backdrop-blur-xs shrink-0 whitespace-nowrap"
               >
                 <span>Explore New Arrivals</span>
-                <span className="w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center transition-transform group-hover:translate-x-0.5">
-                  <ArrowRightIcon size={13} animateOnHover={true} />
+                <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center transition-transform group-hover:translate-x-0.5 shrink-0">
+                  <ArrowRightIcon size={11} animateOnHover={true} />
                 </span>
               </Link>
             </motion.div>
