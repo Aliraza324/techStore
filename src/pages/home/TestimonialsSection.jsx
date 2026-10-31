@@ -75,7 +75,7 @@ export const TestimonialsSection = () => {
           <div
             className="flex gap-4 sm:gap-5 transition-transform duration-500 ease-out py-2 px-1"
             style={{
-              transform: `translateX(-${currentIndex * (visibleCount === 1 ? 276 : 296)}px)`,
+              transform: `translateX(-${currentIndex * (visibleCount === 1 ? 291 : 325)}px)`,
             }}
           >
             {testimonials.map((item) => (
@@ -139,3 +139,4 @@ export const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
+

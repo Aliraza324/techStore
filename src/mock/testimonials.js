@@ -65,3 +65,4 @@ export const testimonials = [
     deviceImg: imgSamsung,
   },
 ];
+
