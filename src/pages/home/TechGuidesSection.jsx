@@ -58,7 +58,7 @@ export const TechGuidesSection = () => {
                   <span className="inline-block px-3.5 py-1 rounded-full bg-[#f4efff] text-[#6c38ff] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase mb-5 sm:mb-6">
                     {item.badge}
                   </span>
-                  <h3 className="text-xl sm:text-[28px] lg:text-[32px] text-gray-950 tracking-tight  mb-3 sm:mb-4 group-hover:text-[#6c38ff] transition-colors">
+                  <h3 className="text-xl sm:text-[28px] lg:text-[32px] text-gray-950 tracking-tight leading-[1.2] mb-3 sm:mb-4 group-hover:text-[#6c38ff] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-[14px] text-gray-500 font-normal leading-relaxed max-w-[280px]">
