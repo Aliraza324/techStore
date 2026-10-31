@@ -1,5 +1,7 @@
 export * from "./categories.js";
 export * from "./products.js";
+export * from "./newArrivals.js";
+export * from "./bestSellers.js";
 
 export const storeStats = {
   activeProducts: "2,400+",
