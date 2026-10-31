@@ -6,7 +6,7 @@ import { SetupBanner } from "./home/SetupBanner.jsx";
 import { CustomerFavoritesSlider } from "./home/CustomerFavoritesSlider.jsx";
 import { ShopByDevice } from "./home/ShopByDevice.jsx";
 import { TestimonialsSection } from "./home/TestimonialsSection.jsx";
-import { FeaturedProducts } from "./home/FeaturedProducts.jsx";
+import { TechGuidesSection } from "./home/TechGuidesSection.jsx";
 
 export const Home = () => {
   return (
@@ -18,7 +18,7 @@ export const Home = () => {
       <CustomerFavoritesSlider />
       <ShopByDevice />
       <TestimonialsSection />
-      <FeaturedProducts />
+      <TechGuidesSection />
     </div>
   );
 };
