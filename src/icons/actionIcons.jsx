@@ -1,7 +1,13 @@
 import React from "react";
 
-const createAnimatedAction = (paths, hoverClass = "hover:scale-110") => {
-  return function AnimatedActionIcon({ size = 20, className = "", color = "currentColor", ...props }) {
+const createAnimatedAction = (paths, hoverClass = "hover:scale-110", defaultFill = "none") => {
+  return function AnimatedActionIcon({
+    size = 20,
+    className = "",
+    color = "currentColor",
+    fill = defaultFill,
+    ...props
+  }) {
     return (
       <span
         className={`inline-flex items-center justify-center transition-all duration-300 ease-out ${hoverClass} ${className}`}
@@ -11,7 +17,7 @@ const createAnimatedAction = (paths, hoverClass = "hover:scale-110") => {
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="none"
+          fill={fill}
           stroke={color}
           strokeWidth="2"
           strokeLinecap="round"

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { newArrivals } from "../../mock/newArrivals.js";
 import {
@@ -13,14 +13,36 @@ import { toast } from "../../utils/toast.jsx";
 export const NewArrivalsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
-  const maxIndex = newArrivals.length - 1;
+
+  const getVisibleCount = () => {
+    if (typeof window === "undefined") return 4;
+    const w = window.innerWidth;
+    if (w >= 1280) return 4;
+    if (w >= 1024) return 3;
+    if (w >= 640) return 2;
+    return 1;
+  };
+
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount);
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(getVisibleCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, newArrivals.length - visibleCount);
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) setCurrentIndex(maxIndex);
+  }, [maxIndex, currentIndex]);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const handleTouchStart = (e) => {
@@ -61,16 +83,26 @@ export const NewArrivalsSlider = () => {
             <div className="flex items-center gap-1">
               <button
                 type="button"
+                disabled={currentIndex === 0}
                 onClick={prevSlide}
-                className="w-8 h-8 rounded-full border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center text-gray-700 shadow-xs transition-colors cursor-pointer"
+                className={`w-8 h-8 rounded-full border bg-white flex items-center justify-center shadow-xs transition-colors ${
+                  currentIndex === 0
+                    ? "opacity-30 cursor-not-allowed border-gray-200 text-gray-300"
+                    : "border-gray-200 hover:bg-gray-50 text-gray-700 cursor-pointer"
+                }`}
                 aria-label="Previous slide"
               >
                 <ChevronLeftIcon size={15} />
               </button>
               <button
                 type="button"
+                disabled={currentIndex >= maxIndex}
                 onClick={nextSlide}
-                className="w-8 h-8 rounded-full border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center text-gray-700 shadow-xs transition-colors cursor-pointer"
+                className={`w-8 h-8 rounded-full border bg-white flex items-center justify-center shadow-xs transition-colors ${
+                  currentIndex >= maxIndex
+                    ? "opacity-30 cursor-not-allowed border-gray-200 text-gray-300"
+                    : "border-gray-200 hover:bg-gray-50 text-gray-700 cursor-pointer"
+                }`}
                 aria-label="Next slide"
               >
                 <ChevronRightIcon size={15} />

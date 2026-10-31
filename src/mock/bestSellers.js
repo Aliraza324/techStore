@@ -101,3 +101,4 @@ export const bestSellers = [
     colors: ["#7c3aed", "#1c1c1e", "#90cdf4"],
   },
 ];
+
