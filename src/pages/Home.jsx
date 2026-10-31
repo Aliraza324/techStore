@@ -7,6 +7,7 @@ import { CustomerFavoritesSlider } from "./home/CustomerFavoritesSlider.jsx";
 import { ShopByDevice } from "./home/ShopByDevice.jsx";
 import { TestimonialsSection } from "./home/TestimonialsSection.jsx";
 import { TechGuidesSection } from "./home/TechGuidesSection.jsx";
+import { NewsletterBanner } from "./home/NewsletterBanner.jsx";
 
 export const Home = () => {
   return (
@@ -19,6 +20,7 @@ export const Home = () => {
       <ShopByDevice />
       <TestimonialsSection />
       <TechGuidesSection />
+      <NewsletterBanner />
     </div>
   );
 };
