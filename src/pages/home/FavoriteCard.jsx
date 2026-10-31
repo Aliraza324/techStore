@@ -91,3 +91,4 @@ export const FavoriteCard = ({ item, isFav, onToggleWishlist, onAddToCart }) => 
 };
 
 export default FavoriteCard;
+
