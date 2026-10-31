@@ -85,3 +85,20 @@ export const arrowTranslate = {
   transition: { duration: 0.2 },
 };
 
+export const loaderPulse = {
+  scale: [1, 1.08, 1],
+  opacity: [0.7, 1, 0.7],
+  transition: {
+    duration: 2.2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
+
+export const loaderFadeOut = {
+  initial: { opacity: 1 },
+  exit: { opacity: 0, scale: 1.02 },
+  transition: { duration: 0.5, ease: "easeInOut" },
+};
+
+
