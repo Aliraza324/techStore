@@ -32,48 +32,46 @@ export const TestimonialCard = ({ item }) => {
         </p>
       </div>
 
-      {/* Bottom Row: Customer Avatar & Corner Device Pedestal */}
-      <div className="flex items-end justify-between z-20 relative mt-auto">
-        <div className="flex items-center gap-3 z-20 relative max-w-[55%]">
-          <img
-            src={item.avatar}
-            alt={item.name}
-            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover shadow-2xs shrink-0"
-            loading="lazy"
-          />
-          <div className="min-w-0">
-            <h4 className="text-sm sm:text-[15px] font-bold text-gray-950 leading-tight truncate">
-              {item.name}
-            </h4>
-            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-500 font-medium mt-1 whitespace-nowrap">
-              <span className="w-3.5 h-3.5 rounded-full bg-[#6c38ff] flex items-center justify-center shrink-0">
-                <svg
-                  width="8"
-                  height="8"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </span>
-              <span>Verified customer</span>
-            </div>
+      {/* Bottom Row: Customer Avatar & Name (Left Side) */}
+      <div className="flex items-center gap-3 z-20 relative mt-auto max-w-[55%]">
+        <img
+          src={item.avatar}
+          alt={item.name}
+          className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover shadow-2xs shrink-0"
+          loading="lazy"
+        />
+        <div className="min-w-0">
+          <h4 className="text-sm sm:text-[15px] font-bold text-gray-950 leading-tight">
+            {item.name}
+          </h4>
+          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-500 font-medium mt-1 whitespace-nowrap">
+            <span className="w-3.5 h-3.5 rounded-full bg-[#6c38ff] flex items-center justify-center shrink-0">
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span>Verified customer</span>
           </div>
         </div>
+      </div>
 
-        {/* Device Graphic Sitting Flush in Bottom-Right Corner */}
-        <div className="absolute right-0 bottom-0 w-[140px] sm:w-[155px] h-[105px] sm:h-[120px] pointer-events-none flex items-end justify-end overflow-hidden z-10">
-          <img
-            src={item.deviceImg}
-            alt="Device"
-            className="w-full h-full object-contain object-bottom-right transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
+      {/* Device Graphic Attached Directly to Card Outer Right & Bottom (Zero Padding) */}
+      <div className="absolute right-0 bottom-0 w-[145px] sm:w-[160px] h-[115px] sm:h-[130px] pointer-events-none flex items-end justify-end overflow-hidden z-10">
+        <img
+          src={item.deviceImg}
+          alt="Device"
+          className="w-full h-full object-contain object-bottom-right transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
       </div>
     </div>
   );
