@@ -133,8 +133,8 @@ export const HeroBanner = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Floating Badge Space over Background Image */}
-          <div className="lg:col-span-6 relative h-48 sm:h-64 lg:h-full flex items-start justify-end">
+          {/* Right Floating Badge Space over Background Image (Hidden on small screens) */}
+          <div className="hidden md:flex lg:col-span-6 relative h-48 sm:h-64 lg:h-full items-start justify-end">
             <motion.div
               variants={floatingBadge}
               animate="animate"
