@@ -27,24 +27,24 @@ export const TestimonialCard = ({ item }) => {
         </div>
 
         {/* Customer Review Quote */}
-        <p className="text-[16px] sm:text-[17px] text-gray-900 font-bold leading-[1.38] mt-6 mb-8 z-10 relative">
+        <p className="text-[13px] sm:text-sm text-gray-800 font-semibold leading-relaxed mt-4 sm:mt-5 mb-6 z-10 relative">
           {item.quote}
         </p>
       </div>
 
       {/* Bottom Row: Customer Avatar & Name (Left Side) */}
-      <div className="flex items-center gap-3 z-20 relative mt-auto max-w-[55%]">
+      <div className="flex items-center gap-2.5 sm:gap-3 z-20 relative mt-auto max-w-[55%]">
         <img
           src={item.avatar}
           alt={item.name}
-          className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover shadow-2xs shrink-0"
+          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover shadow-2xs shrink-0"
           loading="lazy"
         />
         <div className="min-w-0">
-          <h4 className="text-sm sm:text-[15px] font-bold text-gray-950 leading-tight">
+          <h4 className="text-xs sm:text-[13px] font-bold text-gray-950 leading-tight">
             {item.name}
           </h4>
-          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-500 font-medium mt-1 whitespace-nowrap">
+          <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-500 font-medium mt-0.5 whitespace-nowrap">
             <span className="w-3.5 h-3.5 rounded-full bg-[#6c38ff] flex items-center justify-center shrink-0">
               <svg
                 width="8"
