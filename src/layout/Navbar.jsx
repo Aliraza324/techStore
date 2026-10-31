@@ -8,6 +8,7 @@ import {
   MenuIcon,
   XIcon,
 } from "../icons/index.jsx";
+import { MobileNavDrawer } from "./MobileNavDrawer.jsx";
 
 const navCategories = [
   { name: "PHONE CASES", path: "/products?category=cases" },
@@ -37,7 +38,7 @@ export const Navbar = () => {
   return (
     <header className="w-full bg-white border-b border-gray-100 shadow-xs sticky top-0 z-50">
       {/* Top Header Row */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
         <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 group">
@@ -67,14 +68,14 @@ export const Navbar = () => {
             />
             <button
               type="submit"
-              className="px-6 py-2 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-xs lg:text-sm font-semibold transition-colors shrink-0 shadow-sm"
+              className="px-6 py-2 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-xs lg:text-sm font-semibold transition-colors shrink-0 shadow-sm cursor-pointer"
             >
               Search
             </button>
           </form>
 
           {/* Right Action Icons (Account, Wishlist, Cart) */}
-          <div className="flex items-center gap-3 sm:gap-5 lg:gap-7 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-5 lg:gap-7 shrink-0">
             <Link to="/products" className="hidden sm:flex flex-col items-center gap-0.5 text-gray-700 hover:text-[#6c38ff] transition-colors group">
               <UserIcon size={20} className="text-gray-700 group-hover:text-[#6c38ff] transition-colors" />
               <span className="text-[11px] font-medium text-gray-600 group-hover:text-[#6c38ff]">Account</span>
@@ -85,21 +86,28 @@ export const Navbar = () => {
               <span className="text-[11px] font-medium text-gray-600 group-hover:text-[#6c38ff]">Wishlist</span>
             </Link>
 
-            <Link to="/cart" className="flex flex-col items-center gap-0.5 text-gray-700 hover:text-[#6c38ff] transition-colors group relative">
-              <span className="relative">
+            {/* Cart: Only Icon on mobile, Icon + Text on desktop */}
+            <Link
+              to="/cart"
+              className="flex sm:flex-col items-center justify-center p-1.5 sm:p-0 gap-0.5 text-gray-700 hover:text-[#6c38ff] transition-colors group relative"
+              aria-label="Shopping Cart"
+            >
+              <span className="relative flex items-center justify-center">
                 <ShoppingCartIcon size={20} className="text-gray-700 group-hover:text-[#6c38ff] transition-colors" />
                 <span className="absolute -top-1.5 -right-2 bg-[#6c38ff] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   2
                 </span>
               </span>
-              <span className="text-[11px] font-medium text-gray-600 group-hover:text-[#6c38ff]">Cart</span>
+              <span className="hidden sm:block text-[11px] font-medium text-gray-600 group-hover:text-[#6c38ff]">
+                Cart
+              </span>
             </Link>
 
             {/* Mobile Hamburger Toggle */}
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              className="md:hidden p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
               aria-label="Toggle navigation"
             >
               {mobileOpen ? <XIcon size={22} /> : <MenuIcon size={22} />}
@@ -108,7 +116,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Search Bar (visible on < md) */}
-        <form onSubmit={handleSearch} className="md:hidden mt-2.5 flex items-center border border-gray-200 rounded-full pl-3 pr-1 py-1 bg-gray-50/60 focus-within:bg-white focus-within:border-[#6c38ff]">
+        <form onSubmit={handleSearch} className="md:hidden mt-2 flex items-center border border-gray-200 rounded-full pl-3 pr-1 py-1 bg-gray-50/60 focus-within:bg-white focus-within:border-[#6c38ff]">
           <SearchIcon size={16} className="text-gray-400 shrink-0" />
           <input
             type="text"
@@ -117,7 +125,7 @@ export const Navbar = () => {
             placeholder="Search tech upgrade..."
             className="w-full px-2 py-1 text-xs text-gray-800 placeholder-gray-400 bg-transparent focus:outline-none"
           />
-          <button type="submit" className="px-4 py-1.5 rounded-full bg-[#6c38ff] text-white text-xs font-semibold shrink-0">
+          <button type="submit" className="px-3.5 py-1 rounded-full bg-[#6c38ff] text-white text-[11px] font-semibold shrink-0 cursor-pointer">
             Search
           </button>
         </form>
@@ -126,12 +134,11 @@ export const Navbar = () => {
       {/* Bottom Category Navigation Bar (Desktop) */}
       <div className="hidden md:block border-t border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center gap-6 lg:gap-8">
-          {/* Browse Categories Button with Dropdown */}
           <div className="relative shrink-0">
             <button
               type="button"
               onClick={() => setCategoriesOpen(!categoriesOpen)}
-              className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-xs font-bold tracking-wide transition-all shadow-sm cursor-pointer"
+              className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#6c38ff] hover:bg-[#5a27eb] text-white text-xs font-bold tracking-wide transition-all shadow-sm cursor-pointer"
             >
               <MenuIcon size={15} />
               <span>Browse Categories</span>
@@ -153,14 +160,13 @@ export const Navbar = () => {
             )}
           </div>
 
-          {/* Navigation Links */}
           <nav className="flex items-center gap-4 lg:gap-6 overflow-x-auto scrollbar-none py-1">
             {navCategories.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-[11px] lg:text-xs  tracking-wider whitespace-nowrap transition-colors ${
+                  `text-[11px] lg:text-xs tracking-wider whitespace-nowrap transition-colors ${
                     isActive ? "text-[#6c38ff]" : "text-gray-600 hover:text-[#6c38ff]"
                   }`
                 }
@@ -173,47 +179,13 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile Drawer Navigation (320px responsive) */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-4 shadow-lg animate-in slide-in-from-top-2">
-          <div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-2">Quick Access</span>
-            <div className="grid grid-cols-2 gap-2 mt-2">
-              <Link
-                to="/products"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 text-xs font-semibold text-gray-800 hover:bg-violet-50 hover:text-[#6c38ff]"
-              >
-                <UserIcon size={16} />
-                <span>My Account</span>
-              </Link>
-              <Link
-                to="/products"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 text-xs font-semibold text-gray-800 hover:bg-violet-50 hover:text-[#6c38ff]"
-              >
-                <HeartIcon size={16} />
-                <span>Wishlist</span>
-              </Link>
-            </div>
-          </div>
-
-          <div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-2">All Categories</span>
-            <div className="flex flex-col gap-1 mt-2">
-              {navCategories.map((cat) => (
-                <Link
-                  key={cat.name}
-                  to={cat.path}
-                  onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 text-xs font-bold text-gray-700 hover:bg-violet-50 hover:text-[#6c38ff] rounded-lg transition-colors"
-                >
-                  {cat.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <MobileNavDrawer
+        isOpen={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        categories={navCategories}
+      />
     </header>
   );
 };
+
+export default Navbar;
