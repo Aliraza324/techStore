@@ -3,7 +3,7 @@ import { StarIcon } from "../../icons/index.jsx";
 
 export const TestimonialCard = ({ item }) => {
   return (
-    <div className="w-[275px] sm:w-[295px] lg:w-[305px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[300px] sm:min-h-[320px]">
+    <div className="w-[285px] sm:w-[315px] lg:w-[335px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[300px] sm:min-h-[320px]">
       <div>
         {/* Top Row: 5 Stars + Purple Quote Bubble */}
         <div className="flex items-center justify-between">
@@ -32,21 +32,20 @@ export const TestimonialCard = ({ item }) => {
         </p>
       </div>
 
-      {/* Bottom Row: Customer Avatar & Big Device Graphic */}
-      <div className="flex items-end justify-between z-10 relative mt-auto pt-2">
-        <div className="flex items-center gap-3">
+      {/* Bottom Row: Customer Avatar & Corner-Clipped Device Graphic */}
+      <div className="flex items-end justify-between z-20 relative mt-auto pt-2">
+        <div className="flex items-center gap-2.5 sm:gap-3 z-20 relative max-w-[58%]">
           <img
             src={item.avatar}
             alt={item.name}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover shadow-xs"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover shadow-xs shrink-0"
             loading="lazy"
           />
-          <div>
-            <h4 className="text-xs sm:text-sm font-bold text-gray-950 leading-tight">
+          <div className="min-w-0">
+            <h4 className="text-xs sm:text-sm font-bold text-gray-950 leading-tight truncate">
               {item.name}
             </h4>
-            <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium mt-1">
-              {/* Solid Purple Circular Check Badge */}
+            <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-500 font-medium mt-1 whitespace-nowrap">
               <span className="w-3.5 h-3.5 rounded-full bg-[#6c38ff] flex items-center justify-center shrink-0">
                 <svg
                   width="8"
@@ -66,12 +65,12 @@ export const TestimonialCard = ({ item }) => {
           </div>
         </div>
 
-        {/* Device Graphic Sitting in Bottom-Right Corner */}
-        <div className="absolute right-0 bottom-0 w-36 sm:w-40 h-28 sm:h-32 pointer-events-none flex items-end justify-end overflow-hidden">
+        {/* Device Graphic: Clipped to show ONLY right side devices, 0% overlap with text */}
+        <div className="absolute right-0 bottom-0 w-[125px] sm:w-[145px] h-[95px] sm:h-[110px] pointer-events-none overflow-hidden flex items-end justify-end z-10">
           <img
             src={item.deviceImg}
             alt="Device"
-            className="w-full h-full object-contain object-bottom-right transition-transform duration-500 group-hover:scale-105"
+            className="w-[165%] max-w-none h-full object-contain object-right-bottom transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
         </div>
