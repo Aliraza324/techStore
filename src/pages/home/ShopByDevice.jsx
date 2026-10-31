@@ -100,29 +100,29 @@ export const ShopByDevice = () => {
             <Link
               key={item.id}
               to={item.link}
-              className="bg-[#F4F0FF] rounded-[20px] sm:rounded-[32px] overflow-hidden relative p-4 sm:p-8 flex flex-col justify-between min-h-[185px] sm:min-h-[230px] group hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 hover:-translate-y-1"
+              className="bg-[#F4F0FF] rounded-[20px] sm:rounded-[32px] overflow-hidden relative p-4 sm:p-7 flex flex-col justify-between min-h-[180px] sm:min-h-[225px] group hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 hover:-translate-y-1"
             >
-              {/* Left Text & Brand Icon */}
-              <div className="relative z-10 max-w-[58%] sm:max-w-[55%] flex flex-col justify-between h-full">
+              {/* Left Text & Brand Icon (Kept safely on left 62% without collision) */}
+              <div className="relative z-20 max-w-[62%] sm:max-w-[54%] flex flex-col justify-between h-full">
                 <div>
                   <div className="h-6 flex items-center">{item.icon}</div>
-                  <h3 className="text-base sm:text-2xl font-bold text-gray-950 mt-3 sm:mt-4 group-hover:text-[#6c38ff] transition-colors leading-tight">
+                  <h3 className="text-base sm:text-2xl font-bold text-gray-950 mt-2.5 sm:mt-4 group-hover:text-[#6c38ff] transition-colors leading-tight">
                     {item.title}
                   </h3>
                 </div>
 
-                <div className="mt-3 sm:mt-6">
-                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold text-[#6c38ff] group-hover:text-[#5825eb] transition-colors">
-                    <span>{item.cta}</span>
-                    <span className="transition-transform duration-300 group-hover:translate-x-1 inline-flex items-center">
+                <div className="mt-3 sm:mt-5">
+                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#6c38ff] group-hover:text-[#5825eb] transition-colors">
+                    <span className="leading-snug">{item.cta}</span>
+                    <span className="shrink-0 transition-transform duration-300 group-hover:translate-x-1 inline-flex items-center">
                       <ArrowRightIcon size={13} />
                     </span>
                   </span>
                 </div>
               </div>
 
-              {/* Right Device 3D Render Image */}
-              <div className="absolute right-0 bottom-0 top-0 w-1/2 sm:w-[52%] flex items-end justify-end pointer-events-none overflow-hidden">
+              {/* Right Device 3D Render Image (Confined to right 38% so it never covers the arrow icon) */}
+              <div className="absolute right-0 bottom-0 top-0 w-[38%] sm:w-[46%] lg:w-[48%] flex items-end justify-end pointer-events-none overflow-hidden z-10">
                 <img
                   src={item.image}
                   alt={item.title}
