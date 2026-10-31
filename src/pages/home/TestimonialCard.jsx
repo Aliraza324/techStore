@@ -3,20 +3,20 @@ import { StarIcon } from "../../icons/index.jsx";
 
 export const TestimonialCard = ({ item }) => {
   return (
-    <div className="w-[285px] sm:w-[315px] lg:w-[335px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[300px] sm:min-h-[320px]">
+    <div className="w-[300px] sm:w-[330px] lg:w-[340px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[320px] sm:min-h-[340px]">
       <div>
         {/* Top Row: 5 Stars + Purple Quote Bubble */}
         <div className="flex items-center justify-between">
           <div className="flex text-amber-400 gap-1">
             {[...Array(item.rating)].map((_, i) => (
-              <StarIcon key={i} size={15} color="#f59e0b" fill="#f59e0b" />
+              <StarIcon key={i} size={16} color="#e5a83b" fill="#e5a83b" />
             ))}
           </div>
 
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#f4efff] flex items-center justify-center text-[#6c38ff] shadow-2xs">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#f4efff] flex items-center justify-center text-[#6c38ff] shadow-2xs">
             <svg
-              width="14"
-              height="14"
+              width="15"
+              height="15"
               viewBox="0 0 24 24"
               fill="currentColor"
               className="text-[#6c38ff]"
@@ -27,25 +27,25 @@ export const TestimonialCard = ({ item }) => {
         </div>
 
         {/* Customer Review Quote */}
-        <p className="text-sm sm:text-[15px] text-gray-900 font-semibold leading-relaxed mt-5 sm:mt-6 mb-6 z-10 relative">
+        <p className="text-[16px] sm:text-[17px] text-gray-900 font-bold leading-[1.38] mt-6 mb-8 z-10 relative">
           {item.quote}
         </p>
       </div>
 
-      {/* Bottom Row: Customer Avatar & Corner-Clipped Device Graphic */}
-      <div className="flex items-end justify-between z-20 relative mt-auto pt-2">
-        <div className="flex items-center gap-2.5 sm:gap-3 z-20 relative max-w-[58%]">
+      {/* Bottom Row: Customer Avatar & Corner Device Pedestal */}
+      <div className="flex items-end justify-between z-20 relative mt-auto">
+        <div className="flex items-center gap-3 z-20 relative max-w-[55%]">
           <img
             src={item.avatar}
             alt={item.name}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover shadow-xs shrink-0"
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover shadow-2xs shrink-0"
             loading="lazy"
           />
           <div className="min-w-0">
-            <h4 className="text-xs sm:text-sm font-bold text-gray-950 leading-tight truncate">
+            <h4 className="text-sm sm:text-[15px] font-bold text-gray-950 leading-tight truncate">
               {item.name}
             </h4>
-            <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-500 font-medium mt-1 whitespace-nowrap">
+            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-500 font-medium mt-1 whitespace-nowrap">
               <span className="w-3.5 h-3.5 rounded-full bg-[#6c38ff] flex items-center justify-center shrink-0">
                 <svg
                   width="8"
@@ -65,12 +65,12 @@ export const TestimonialCard = ({ item }) => {
           </div>
         </div>
 
-        {/* Device Graphic: Clipped to show ONLY right side devices, 0% overlap with text */}
-        <div className="absolute right-0 bottom-0 w-[125px] sm:w-[145px] h-[95px] sm:h-[110px] pointer-events-none overflow-hidden flex items-end justify-end z-10">
+        {/* Device Graphic Sitting Flush in Bottom-Right Corner */}
+        <div className="absolute right-0 bottom-0 w-[140px] sm:w-[155px] h-[105px] sm:h-[120px] pointer-events-none flex items-end justify-end overflow-hidden z-10">
           <img
             src={item.deviceImg}
             alt="Device"
-            className="w-[165%] max-w-none h-full object-contain object-right-bottom transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain object-bottom-right transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
         </div>
