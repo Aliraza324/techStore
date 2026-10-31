@@ -53,3 +53,4 @@ export const MobileNavDrawer = ({ isOpen, onClose, categories }) => {
 };
 
 export default MobileNavDrawer;
+

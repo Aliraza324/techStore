@@ -60,3 +60,4 @@ export const LoaderProgress = ({ progress = 0 }) => {
 };
 
 export default LoaderProgress;
+
