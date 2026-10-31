@@ -6,8 +6,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from "../../icons/index.jsx";
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
-  const containerRef = useRef(null);
-  const firstCardRef = useRef(null);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 4;
@@ -19,25 +17,11 @@ export const TestimonialsSection = () => {
   };
 
   const [visibleCount, setVisibleCount] = useState(getVisibleCount);
-  const [containerWidth, setContainerWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 360
-  );
-  const [cardWidth, setCardWidth] = useState(300);
-
-  const updateDimensions = () => {
-    setVisibleCount(getVisibleCount());
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth);
-    }
-    if (firstCardRef.current) {
-      setCardWidth(firstCardRef.current.offsetWidth);
-    }
-  };
 
   useEffect(() => {
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    const handleResize = () => setVisibleCount(getVisibleCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const isMobile = visibleCount === 1;
@@ -57,23 +41,9 @@ export const TestimonialsSection = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
-  const getTransform = () => {
-    if (isMobile) {
-      const gap = 16;
-      const cWidth = cardWidth || 300;
-      const contWidth = containerWidth || (typeof window !== "undefined" ? window.innerWidth : 360);
-      const centerOffset = (contWidth - cWidth) / 2;
-      const x = centerOffset - currentIndex * (cWidth + gap);
-      return `translateX(${x}px)`;
-    }
-    const gap = 20;
-    const cWidth = cardWidth || 330;
-    return `translateX(-${currentIndex * (cWidth + gap)}px)`;
-  };
-
   return (
     <section className="py-12 sm:py-16 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center text-center mb-8 sm:mb-12">
           {/* Eyebrow Pill */}
@@ -83,7 +53,7 @@ export const TestimonialsSection = () => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-gray-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-black text-gray-950 tracking-tight leading-tight">
             Good Tech. <span className="text-[#6c38ff]">Great Experiences.</span>
           </h2>
 
@@ -93,9 +63,8 @@ export const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Slider Track */}
+        {/* Testimonials Slider Track (100% centered & fully readable on mobile) */}
         <div
-          ref={containerRef}
           onTouchStart={(e) => {
             touchStartX.current = e.touches[0].clientX;
           }}
@@ -104,21 +73,26 @@ export const TestimonialsSection = () => {
             if (diff > 40) nextSlide();
             if (diff < -40) prevSlide();
           }}
-          className="relative w-full overflow-hidden py-4 -my-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+          className="relative w-full overflow-hidden py-4 -my-4"
         >
           <div
-            className="flex gap-4 sm:gap-5 transition-transform duration-500 ease-out py-2"
+            className="flex transition-transform duration-500 ease-out py-2 sm:gap-5"
             style={{
-              transform: getTransform(),
+              transform: isMobile
+                ? `translateX(-${currentIndex * 100}%)`
+                : `translateX(-${currentIndex * 350}px)`,
             }}
           >
             {testimonials.map((item, idx) => (
-              <TestimonialCard
+              <div
                 key={item.id}
-                item={item}
-                cardRef={idx === 0 ? firstCardRef : undefined}
-                isActive={currentIndex === idx}
-              />
+                className="w-full shrink-0 flex justify-center px-1 sm:w-auto sm:px-0 sm:shrink-0"
+              >
+                <TestimonialCard
+                  item={item}
+                  isActive={currentIndex === idx}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -178,4 +152,3 @@ export const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
-
