@@ -41,7 +41,7 @@ export const TestimonialCard = ({ item }) => {
           loading="lazy"
         />
         <div className="min-w-0">
-          <h4 className="text-xs sm:text-[13px] font-bold text-gray-950 leading-tight">
+          <h4 className="text-xs sm:text-[13px]  text-gray-950 leading-tight">
             {item.name}
           </h4>
           <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-500 font-medium mt-0.5 whitespace-nowrap">
