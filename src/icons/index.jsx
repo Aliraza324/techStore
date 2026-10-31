@@ -7,6 +7,8 @@ import {
   ShieldCheckIcon,
   SparklesIcon,
   SlidersHorizontalIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from "lucide-animated";
 
 export {
@@ -18,6 +20,8 @@ export {
   ShieldCheckIcon,
   SparklesIcon,
   SlidersHorizontalIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 };
 
 export * from "./categoryIcons.jsx";

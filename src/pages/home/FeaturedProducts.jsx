@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { products } from "../../../mock/index.js";
+import { products } from "../../mock/index.js";
 import { ShoppingCartIcon, StarIcon, ArrowRightIcon } from "../../icons/index.jsx";
 import { toast } from "../../utils/toast.jsx";
 
