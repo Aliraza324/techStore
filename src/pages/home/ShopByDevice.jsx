@@ -5,6 +5,7 @@ import imgApple from "../../assets/Device photography (2).png";
 import imgSamsung from "../../assets/r.png";
 import imgPixel from "../../assets/Device photography (1).png";
 import imgTablets from "../../assets/Device photography.png";
+import { ArrowRightIcon } from "../../icons/index.jsx";
 
 const devices = [
   {
@@ -12,7 +13,7 @@ const devices = [
     title: "Apple iPhone",
     cta: "Shop iPhone Accessories",
     link: "/products?brand=apple",
-    image: imgApple,
+    image: imgTablets,
     icon: (
       <img
         src={appleIcon}
@@ -50,7 +51,7 @@ const devices = [
     title: "Tablets & More",
     cta: "Explore More Accessories",
     link: "/products?category=accessories",
-    image: imgTablets,
+    image: imgApple,
     icon: (
       <svg
         width="22"
@@ -113,8 +114,8 @@ export const ShopByDevice = () => {
                 <div className="mt-4 sm:mt-6">
                   <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#6c38ff] group-hover:text-[#5825eb] transition-colors">
                     <span>{item.cta}</span>
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      &rarr;
+                    <span className="transition-transform duration-300 group-hover:translate-x-1 inline-flex items-center">
+                      <ArrowRightIcon size={14} />
                     </span>
                   </span>
                 </div>
