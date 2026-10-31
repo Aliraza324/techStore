@@ -56,7 +56,7 @@ export const HeroBanner = () => {
       {/* Light gradient overlay for mobile readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent lg:from-transparent lg:via-transparent lg:to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[520px] lg:min-h-[580px]">
           {/* Left Text Content */}
           <motion.div

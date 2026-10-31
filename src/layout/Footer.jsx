@@ -48,7 +48,7 @@ const navGroups = [
 export const Footer = () => {
   return (
     <footer className="bg-[#111126] text-gray-300 text-sm overflow-hidden pt-12 sm:pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Top Section: Brand & Nav Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 pb-12 sm:pb-16 border-b border-white/5">
           <div className="lg:col-span-2 space-y-4">
@@ -135,7 +135,7 @@ export const Footer = () => {
           </p>
 
           {/* Payment Badges */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-1.5 sm:gap-2">
             {[
               { label: "VISA", el: <span className="text-[10px] font-black italic text-[#1a1f71]">VISA</span> },
               {

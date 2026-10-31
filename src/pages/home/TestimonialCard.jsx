@@ -5,7 +5,7 @@ export const TestimonialCard = ({ item, cardRef, isActive = false }) => {
   return (
     <div
       ref={cardRef}
-      className={`w-[300px] sm:w-[330px] lg:w-[340px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[320px] sm:min-h-[340px] ${
+      className={`w-[270px] sm:w-[330px] lg:w-[340px] shrink-0 bg-white rounded-[24px] sm:rounded-[32px] border transition-all duration-300 p-5 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[310px] sm:min-h-[340px] ${
         isActive
           ? "border-purple-200 shadow-xl shadow-purple-900/10 scale-[1.01]"
           : "border-gray-100 shadow-xs opacity-90 sm:opacity-100"

@@ -73,8 +73,8 @@ const devices = [
 
 export const ShopByDevice = () => {
   return (
-    <section className="py-12 sm:py-16 bg-[#FCFAFF]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 sm:py-16 bg-[#FCFAFF]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center text-center mb-8 sm:mb-12">
           {/* Eyebrow Pill */}
@@ -84,7 +84,7 @@ export const ShopByDevice = () => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-gray-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-black text-gray-950 tracking-tight leading-tight">
             Find Accessories That Fit <span className="text-[#6c38ff]">Your Device</span>
           </h2>
 
@@ -100,22 +100,22 @@ export const ShopByDevice = () => {
             <Link
               key={item.id}
               to={item.link}
-              className="bg-[#F4F0FF] rounded-[24px] sm:rounded-[32px] overflow-hidden relative p-6 sm:p-8 flex flex-col justify-between min-h-[200px] sm:min-h-[230px] group hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 hover:-translate-y-1"
+              className="bg-[#F4F0FF] rounded-[20px] sm:rounded-[32px] overflow-hidden relative p-4 sm:p-8 flex flex-col justify-between min-h-[185px] sm:min-h-[230px] group hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 hover:-translate-y-1"
             >
               {/* Left Text & Brand Icon */}
-              <div className="relative z-10 max-w-[55%] flex flex-col justify-between h-full">
+              <div className="relative z-10 max-w-[58%] sm:max-w-[55%] flex flex-col justify-between h-full">
                 <div>
                   <div className="h-6 flex items-center">{item.icon}</div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-gray-950 mt-4 group-hover:text-[#6c38ff] transition-colors">
+                  <h3 className="text-base sm:text-2xl font-bold text-gray-950 mt-3 sm:mt-4 group-hover:text-[#6c38ff] transition-colors leading-tight">
                     {item.title}
                   </h3>
                 </div>
 
-                <div className="mt-4 sm:mt-6">
-                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#6c38ff] group-hover:text-[#5825eb] transition-colors">
+                <div className="mt-3 sm:mt-6">
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold text-[#6c38ff] group-hover:text-[#5825eb] transition-colors">
                     <span>{item.cta}</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1 inline-flex items-center">
-                      <ArrowRightIcon size={14} />
+                      <ArrowRightIcon size={13} />
                     </span>
                   </span>
                 </div>
