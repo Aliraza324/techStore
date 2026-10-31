@@ -50,26 +50,26 @@ export const TechGuidesSection = () => {
           {articles.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 relative overflow-hidden min-h-[250px] sm:min-h-[280px] flex flex-col justify-between group hover:-translate-y-1 p-6 sm:p-8 lg:p-10"
+              className="bg-white rounded-[28px] sm:rounded-[36px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[350px] lg:min-h-[370px] flex flex-col justify-between group hover:-translate-y-1 p-7 sm:p-9 lg:p-11"
             >
-              {/* Left Content */}
-              <div className="relative z-10 max-w-[58%] flex flex-col justify-between h-full">
+              {/* Left Content Area (Matches Figma layout, margins, and typography) */}
+              <div className="relative z-10 max-w-[50%] sm:max-w-[48%] flex flex-col justify-between h-full">
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#f4efff] text-[#6c38ff] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase mb-3 sm:mb-4">
+                  <span className="inline-block px-3.5 py-1 rounded-full bg-[#f4efff] text-[#6c38ff] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase mb-5 sm:mb-6">
                     {item.badge}
                   </span>
-                  <h3 className="text-lg sm:text-2xl font-bold text-gray-950 tracking-tight leading-snug group-hover:text-[#6c38ff] transition-colors">
+                  <h3 className="text-2xl sm:text-[28px] lg:text-[32px] text-gray-950  mb-3 sm:mb-4 group-hover:text-[#6c38ff] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-500 font-normal mt-2 leading-relaxed">
+                  <p className="text-xs sm:text-[14px] text-gray-500 font-normal leading-relaxed max-w-[280px]">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 sm:mt-8">
+                <div className="mt-8 sm:mt-10">
                   <Link
                     to={item.link}
-                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#6c38ff] hover:bg-[#5825eb] text-white text-xs sm:text-sm font-semibold shadow-xs shadow-[#6c38ff]/25 hover:shadow-md transition-all active:scale-95"
+                    className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-[#6c38ff] hover:bg-[#5825eb] text-white text-xs sm:text-sm font-semibold shadow-xs shadow-[#6c38ff]/25 hover:shadow-md transition-all active:scale-95"
                   >
                     Read Article
                   </Link>
