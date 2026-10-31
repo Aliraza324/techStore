@@ -6,6 +6,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "../../icons/index.jsx";
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
+  const containerRef = useRef(null);
+  const firstCardRef = useRef(null);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 4;
@@ -17,14 +19,31 @@ export const TestimonialsSection = () => {
   };
 
   const [visibleCount, setVisibleCount] = useState(getVisibleCount);
+  const [containerWidth, setContainerWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 360
+  );
+  const [cardWidth, setCardWidth] = useState(300);
+
+  const updateDimensions = () => {
+    setVisibleCount(getVisibleCount());
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth);
+    }
+    if (firstCardRef.current) {
+      setCardWidth(firstCardRef.current.offsetWidth);
+    }
+  };
 
   useEffect(() => {
-    const handleResize = () => setVisibleCount(getVisibleCount());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const isMobile = visibleCount === 1;
+  const maxIndex = isMobile
+    ? Math.max(0, testimonials.length - 1)
+    : Math.max(0, testimonials.length - visibleCount);
 
   useEffect(() => {
     if (currentIndex > maxIndex) setCurrentIndex(maxIndex);
@@ -36,6 +55,20 @@ export const TestimonialsSection = () => {
 
   const prevSlide = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const getTransform = () => {
+    if (isMobile) {
+      const gap = 16;
+      const cWidth = cardWidth || 300;
+      const contWidth = containerWidth || (typeof window !== "undefined" ? window.innerWidth : 360);
+      const centerOffset = (contWidth - cWidth) / 2;
+      const x = centerOffset - currentIndex * (cWidth + gap);
+      return `translateX(${x}px)`;
+    }
+    const gap = 20;
+    const cWidth = cardWidth || 330;
+    return `translateX(-${currentIndex * (cWidth + gap)}px)`;
   };
 
   return (
@@ -62,24 +95,30 @@ export const TestimonialsSection = () => {
 
         {/* Testimonials Slider Track */}
         <div
+          ref={containerRef}
           onTouchStart={(e) => {
             touchStartX.current = e.touches[0].clientX;
           }}
           onTouchEnd={(e) => {
             const diff = touchStartX.current - e.changedTouches[0].clientX;
-            if (diff > 50) nextSlide();
-            if (diff < -50) prevSlide();
+            if (diff > 40) nextSlide();
+            if (diff < -40) prevSlide();
           }}
-          className="relative w-full overflow-hidden py-4 -my-4 px-1 -mx-1"
+          className="relative w-full overflow-hidden py-4 -my-4 -mx-4 px-4 sm:mx-0 sm:px-0"
         >
           <div
-            className="flex gap-4 sm:gap-5 transition-transform duration-500 ease-out py-2 px-1"
+            className="flex gap-4 sm:gap-5 transition-transform duration-500 ease-out py-2"
             style={{
-              transform: `translateX(-${currentIndex * (visibleCount === 1 ? 301 : 355)}px)`,
+              transform: getTransform(),
             }}
           >
-            {testimonials.map((item) => (
-              <TestimonialCard key={item.id} item={item} />
+            {testimonials.map((item, idx) => (
+              <TestimonialCard
+                key={item.id}
+                item={item}
+                cardRef={idx === 0 ? firstCardRef : undefined}
+                isActive={currentIndex === idx}
+              />
             ))}
           </div>
         </div>

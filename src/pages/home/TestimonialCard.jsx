@@ -1,9 +1,16 @@
 import React from "react";
 import { StarIcon } from "../../icons/index.jsx";
 
-export const TestimonialCard = ({ item }) => {
+export const TestimonialCard = ({ item, cardRef, isActive = false }) => {
   return (
-    <div className="w-[300px] sm:w-[330px] lg:w-[340px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border border-gray-100 shadow-xs hover:shadow-xl hover:shadow-purple-900/8 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[320px] sm:min-h-[340px]">
+    <div
+      ref={cardRef}
+      className={`w-[300px] sm:w-[330px] lg:w-[340px] shrink-0 bg-white rounded-[28px] sm:rounded-[32px] border transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden min-h-[320px] sm:min-h-[340px] ${
+        isActive
+          ? "border-purple-200 shadow-xl shadow-purple-900/10 scale-[1.01]"
+          : "border-gray-100 shadow-xs opacity-90 sm:opacity-100"
+      }`}
+    >
       <div>
         {/* Top Row: 5 Stars + Purple Quote Bubble */}
         <div className="flex items-center justify-between">
